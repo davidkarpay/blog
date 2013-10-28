@@ -1,8 +1,18 @@
+<%= form_for :post, url: posts_path do |form| %>
+	<% if @post.errors.any? %>
+	<div id="errorExplanation">
+		<h2><%= pluralize(@post.errors.count, "error") %> prohibited this post from being saved:</h2>
+		<ol>
+		<% @post.errors.full_messages.each do |message| %>
+			<li><%= message %></li>
+		<% end %>
+		</ol>
+	</div>
+	<% end %>
 <h1>New Post</h1>
 
-<%= form_for :post, url: posts_path do |form| %>
 	<p>
-		<%= form.label :title %><br>
+		<%= form.label :text %><br>
 		<%= form.text_field :title %>
 	</p>
 
@@ -15,5 +25,4 @@
 		<%= form.submit %>
 	</p>
 <% end %>
-
 <%= link_to 'See all posts', posts_path %>
