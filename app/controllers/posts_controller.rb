@@ -7,10 +7,10 @@ class PostsController < ApplicationController
 		@post = Post.new(params[:post].permit(:title, :text))
 
 		if @post.save
-		  redirect_to @post
-    else
-      render 'new'
-    end
+			redirect_to @post
+    	else
+      		render 'new'
+    	end
 	end
 
 	def post_params
